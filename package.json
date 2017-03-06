@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
-    "start": "node ./app.js"
+    "start": "node ./app.js",
+    "test": "./node_modules/.bin/karma start"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,12 @@
     "url-loader": "^0.5.6",
     "webpack": "^1.12.14",
     "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.10.0"
+    "webpack-hot-middleware": "^2.10.0",
+    "karma": "^0.13.10",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-jasmine": "^0.3.6",
+    "karma-spec-reporter": "0.0.20",
+    "karma-webpack": "^1.7.0",
+    "jasmine-core": "^2.3.4"
   }
 }
