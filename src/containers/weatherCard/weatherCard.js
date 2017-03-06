@@ -15,7 +15,6 @@ class WeatherCard extends Component {
   }
 
   renderWeatherCard = (cityData) => {
-    console.log('cityData', cityData);
     const name = cityData.city.name;
     const temps = cityData.list.map(weather => weather.main.temp);
     const wind = cityData.list.map(weather => weather.wind.speed);
