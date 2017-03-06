@@ -1,10 +1,10 @@
 {
-  "name": "webpack-heroku-boilerplate",
+  "name": "react-weather-app",
   "version": "1.0.0",
-  "description": "Simplest Heroku starter kit for React apps.",
+  "description": "Simplest React Weather App",
   "main": "./src/entry.js",
-  "homepage": "https://github.com/wallacyyy/webpack-heroku",
-  "author": "Leonardo Couto",
+  "homepage": "https://github.com/lukedar/react-weather-app",
+  "author": "Luke Darham",
   "license": "MIT",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wallacyyy/webpack-heroku.git"
+    "url": "git+https://github.com/lukedar/react-weather-app"
   },
   "keywords": [
     "react",
