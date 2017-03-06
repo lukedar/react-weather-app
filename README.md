@@ -6,5 +6,7 @@
 
 ### React Weather App
 Tech test for Wipro digital March 2017
-demo: http://react-weather-app-wipro.herokuapp.com/
+
+
+http://react-weather-app-wipro.herokuapp.com/
 
