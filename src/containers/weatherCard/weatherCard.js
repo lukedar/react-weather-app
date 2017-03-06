@@ -15,6 +15,7 @@ class WeatherCard extends Component {
   }
 
   renderWeatherCard = (cityData) => {
+    console.log('cityData', cityData);
     const name = cityData.city.name;
     const temps = cityData.list.map(weather => weather.main.temp);
     const wind = cityData.list.map(weather => weather.wind.speed);
@@ -26,7 +27,7 @@ class WeatherCard extends Component {
     const avaragePressure = this.getAvarageWeatherData(pressure, pressure.length);
 
     return (
-      <Card style={style}>
+      <Card key={name} style={style}>
         <CardHeader
           title={<h2>{name}</h2>}
           subtitle="Average 5 day forecast:"
@@ -43,13 +44,13 @@ class WeatherCard extends Component {
   render() {
     return (
       <div>     
-          {this.props.weatherData.map(this.renderWeatherCard)}
+          {this.props.weatherData.weather.map(this.renderWeatherCard)}
       </div>
     );
   }
 }
 
-function mapStateToProps({weather}) {
+function mapStateToProps(weather) {
   return {
     weatherData: weather
   };
