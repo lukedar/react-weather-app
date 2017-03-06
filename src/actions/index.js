@@ -4,22 +4,20 @@ const BASE_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KE
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 
 export function fetchWeather(city) {
-  return function(dispatch) {
+  return (dispatch) => {
     const url = `${BASE_URL}&q=${city}`;
 
     fetch(url).then(response => response.json())
-    .then(response => {
-    	dispatch(recieveWeather(response));
-    }).catch(err => {
-    	console.log('There has been an error fetching weather data');
-    });
-  }
+      .then(response => {
+        dispatch(recieveWeather(response));
+      });
+  };
 }
 
 export function recieveWeather(data) {
   return {
     type: FETCH_WEATHER,
-    payload: data,
+    payload: data
   };
 }
 

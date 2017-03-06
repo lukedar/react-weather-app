@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchWeather} from '../../actions/index';
@@ -18,7 +18,7 @@ class WeatherSearchBar extends Component {
     this.setState({location: event.target.value});
   }
 
-  onSubmit = (event) =>  {
+  onSubmit = (event) => {
     event.preventDefault();
     this.props.fetchWeather(this.state.location);
     // Reset location.
@@ -37,6 +37,10 @@ class WeatherSearchBar extends Component {
     );
   }
 }
+
+WeatherSearchBar.propTypes = {
+  fetchWeather: PropTypes.func.isRequired
+};
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({fetchWeather}, dispatch);

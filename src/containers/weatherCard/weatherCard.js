@@ -1,17 +1,16 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {Card, CardHeader, CardText} from 'material-ui';
 
 const style = {
   marginBottom: '20px'
-}
+};
 
 class WeatherCard extends Component {
   getAvarageWeatherData = (dataType, items) => {
     // Return avarage with no decimal points.
-    const output = dataType.reduce(function(a, b) { return a + b; }) / items;
+    const output = dataType.reduce((a, b) => a + b) / items;
     return Math.round(output);
-;
   }
 
   renderWeatherCard = (cityData) => {
@@ -42,12 +41,16 @@ class WeatherCard extends Component {
 
   render() {
     return (
-      <div>     
-          {this.props.weatherData.weather.map(this.renderWeatherCard)}
+      <div>
+        {this.props.weatherData.weather.map(this.renderWeatherCard)}
       </div>
     );
   }
 }
+
+WeatherCard.propTypes = {
+  weatherData: PropTypes.object
+};
 
 function mapStateToProps(weather) {
   return {
