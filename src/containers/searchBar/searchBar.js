@@ -10,9 +10,6 @@ class WeatherSearchBar extends Component {
   }
 
   componentWillMount() {
-
-    console.log('conponent will mount');
-
     this.props.fetchWeather(this.state.location);
   }
 

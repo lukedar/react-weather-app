@@ -31,7 +31,6 @@ describe('WeatherSearchBar', () => {
     expect(componentWrapper.find('input.weatherLocationInput').length).to.equal(1);
     expect(componentWrapper.find('button.weatherSubmit').length).to.equal(1);
   });
-  
   it('Should call the fetch weather action creator when mounting', () => {
     const spy = sinon.spy(actions, 'fetchWeather');
 
