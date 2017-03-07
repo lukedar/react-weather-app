@@ -10,6 +10,9 @@ class WeatherSearchBar extends Component {
   }
 
   componentWillMount() {
+
+    console.log('conponent will mount');
+
     this.props.fetchWeather(this.state.location);
   }
 
@@ -48,3 +51,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(null, mapDispatchToProps)(WeatherSearchBar);
+
+export const WeatherSearchBarTest = WeatherSearchBar;
+
+

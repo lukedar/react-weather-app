@@ -4,8 +4,11 @@ import {mount} from 'enzyme';
 import {expect} from 'chai';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import sinon from 'sinon';
 
-import WeatherSearchBarTest from '../searchBar';
+import * as actions from '../../../actions';
+import WeatherSearchBar from '../searchBar';
+import {WeatherSearchBarTest as SearchBar} from '../searchBar';
 
 describe('WeatherSearchBar', () => {
   const mockStore = configureMockStore([thunk]);
@@ -18,14 +21,22 @@ describe('WeatherSearchBar', () => {
   });
 
   it('Should render a form with Input and submit button', () => {
-    const wrapper = mount(
+    const componentWrapper = mount(
       <Provider store={store}>
-        <WeatherSearchBarTest/>
+        <WeatherSearchBar/>
       </Provider>
     );
 
-    expect(wrapper.find('form.weatherForm').length).to.equal(1);
-    expect(wrapper.find('input.weatherLocationInput').length).to.equal(1);
-    expect(wrapper.find('button.weatherSubmit').length).to.equal(1);
+    expect(componentWrapper.find('form.weatherForm').length).to.equal(1);
+    expect(componentWrapper.find('input.weatherLocationInput').length).to.equal(1);
+    expect(componentWrapper.find('button.weatherSubmit').length).to.equal(1);
+  });
+  
+  it('Should call the fetch weather action creator when mounting', () => {
+    const spy = sinon.spy(actions, 'fetchWeather');
+
+    mount(<SearchBar fetchWeather={actions.fetchWeather}/>);
+
+    expect(spy.callCount).to.equal(1);
   });
 });
