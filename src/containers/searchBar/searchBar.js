@@ -27,12 +27,13 @@ class WeatherSearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form className='weatherForm' onSubmit={this.onSubmit}>
         <input
+          className='weatherLocationInput'
           placeholder={this.state.location}
           value={this.state.location}
           onChange={this.onChange} />
-          <button type="submit">Submit</button>
+          <button className='weatherSubmit' type="submit">Submit</button>
       </form>
     );
   }
@@ -47,3 +48,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(null, mapDispatchToProps)(WeatherSearchBar);
+
+export const WeatherSearchBarTest = WeatherSearchBar;
