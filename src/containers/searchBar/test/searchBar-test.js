@@ -20,6 +20,10 @@ describe('WeatherSearchBar', () => {
     });
   });
 
+  afterEach(() => {
+    store = undefined;
+  });
+
   it('Should render a form with Input and submit button', () => {
     const componentWrapper = mount(
       <Provider store={store}>
@@ -31,11 +35,21 @@ describe('WeatherSearchBar', () => {
     expect(componentWrapper.find('input.weatherLocationInput').length).to.equal(1);
     expect(componentWrapper.find('button.weatherSubmit').length).to.equal(1);
   });
-  it('Should call the fetch weather action creator when mounting', () => {
+
+  it('Should render default text as London', () => {
+    const expected = 'London';
+    const component = mount(<SearchBar fetchWeather={actions.fetchWeather}/>);
+    const form = component.find('input.weatherLocationInput');
+
+    expect(form.node.defaultValue).to.equal(expected);
+  });
+
+  it('Should call the fetch weather action creator when mounting and on form submission', () => {
     const spy = sinon.spy(actions, 'fetchWeather');
+    const component = mount(<SearchBar fetchWeather={actions.fetchWeather}/>);
+    const form = component.find('form.weatherForm');
 
-    mount(<SearchBar fetchWeather={actions.fetchWeather}/>);
-
-    expect(spy.callCount).to.equal(1);
+    form.simulate('submit');
+    expect(spy.callCount).to.equal(2);
   });
 });
