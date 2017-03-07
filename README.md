@@ -15,3 +15,4 @@ http://react-weather-app-wipro.herokuapp.com/
 2. Add css loaders to webpack
 3. Add unit tests to components and action creators
 4. Tidy up with linting tool
+5. Add the ability for users to save Locations
